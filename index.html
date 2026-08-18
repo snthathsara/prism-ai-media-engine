@@ -1,594 +1,346 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PRISM — AI-Powered Media Engine (Portfolio Demo)</title>
-  <meta name="description" content="Portfolio Demo Project: PRISM gives every creator and team the golden path to use AI media engines. Interactive concept demonstration." />
+  <meta name="description" content="PRISM gives every creator and team the golden path to use AI media engines. Autonomous reframing, scene synthesis, voice dubbing, and enterprise governance." />
   
-  <!-- Fonts -->
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800;900&display=swap" rel="stylesheet" />
   
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
   
-  <!-- Custom Styles with Orange Aura Gradient -->
+  <!-- Maximum-Performance Lightweight CSS -->
   <link rel="stylesheet" href="index.css" />
 </head>
 <body>
 
-  <!-- Top Announcement / Portfolio Disclaimer Bar -->
+  <!-- Top Announcement / Portfolio Demo Banner -->
   <div class="top-announcement-bar" id="announcementBar">
     <div class="announcement-content">
       <span class="portfolio-tag">PORTFOLIO DEMO</span>
-      <span>This is an interactive concept website built for web development portfolio presentation. <strong>Not a real company • Features are simulated.</strong></span>
+      <span>This is an interactive concept website built for web development portfolio presentation. <strong>Not a real company • All features are simulated.</strong></span>
     </div>
     <button class="announcement-close-btn" id="closeAnnouncementBtn" aria-label="Close Announcement">&times;</button>
   </div>
 
-  <!-- Master 1px Bordered Container -->
+  <!-- Pure GPU-Accelerated CSS Liquid Blobs (Ultra Low CPU) -->
+  <div class="liquid-blob-container" aria-hidden="true">
+    <div class="liquid-blob blob-primary"></div>
+    <div class="liquid-blob blob-secondary"></div>
+  </div>
+
+  <!-- Master Site Container -->
   <div class="site-wrapper">
     
-    <!-- 1. NAVBAR / HEADER -->
+    <!-- 1. NAVBAR / HEADER with Clean Borderless Nav Links & Scrollspy -->
     <header class="site-header">
       <div class="header-inner">
-        <a href="#" class="brand-logo" aria-label="PRISM Home">
-          <div class="logo-symbol orange-symbol">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <a href="#hero" class="brand-logo" aria-label="PRISM Home">
+          <div class="logo-symbol">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
               <path d="M12 2v20M2 12h20M4.93 4.93l14.14 14.14M4.93 19.07l14.14-14.14"/>
             </svg>
           </div>
-          <span class="brand-name">PRISM</span>
+          <span class="brand-name">PRISM<span class="dot-accent">.</span></span>
           <span class="demo-chip">Demo Project</span>
         </a>
 
-        <nav class="main-nav" aria-label="Primary Navigation">
-          <a href="#engine" class="nav-link">Product <i data-lucide="chevron-down" class="chevron-icon"></i></a>
-          <a href="#integrations" class="nav-link">Solutions <i data-lucide="chevron-down" class="chevron-icon"></i></a>
-          <a href="#bento" class="nav-link">Bento Tools</a>
-          <a href="#performance" class="nav-link">Performance</a>
-          <a href="#pricing" class="nav-link">Pricing</a>
-          <a href="#updates" class="nav-link">Changelog</a>
+        <!-- Clean Nav Links -->
+        <nav class="main-nav" id="mainNav" aria-label="Primary Navigation">
+          <a href="#hero" class="nav-link active" data-section="hero">Home</a>
+          <a href="#features" class="nav-link" data-section="features">Features</a>
+          <a href="#solutions" class="nav-link" data-section="solutions">Solutions</a>
+          <a href="#why-us" class="nav-link" data-section="why-us">Why Us</a>
+          <a href="#pricing" class="nav-link" data-section="pricing">Pricing</a>
+          <a href="#faq" class="nav-link" data-section="faq">About</a>
         </nav>
 
         <div class="header-actions">
-          <button class="btn-orange-gradient" id="navBookBtn">Book A Demo</button>
+          <!-- Light / Dark Mode Toggle Button -->
+          <button class="theme-toggle-btn" id="themeToggleBtn" aria-label="Toggle Light/Dark Theme" title="Toggle theme">
+            <i data-lucide="sun" class="sun-icon"></i>
+            <i data-lucide="moon" class="moon-icon"></i>
+          </button>
+
+          <button class="btn-ghost-pill" id="navRequestDemoBtn">Request A Demo</button>
+          <button class="btn-primary-pill" id="navGetStartedBtn">Get Started</button>
         </div>
       </div>
     </header>
 
-    <!-- 2. HERO SECTION with Soft Orange Radial Aura Gradient -->
+    <!-- 2. HERO SECTION with Radiant Volumetric Orange Arch Dome -->
     <section class="hero-section" id="hero">
-      <!-- Soft Orange Radial Aura Mesh Glow -->
-      <div class="hero-orange-aura"></div>
+      
+      <!-- Volumetric Radiant Luminous Orange Arch Dome -->
+      <div class="hero-arch-container">
+        <div class="arch-halo-rim"></div>
+        <div class="arch-orange-glow"></div>
+        <div class="arch-ambient-mesh"></div>
+      </div>
 
-      <div class="hero-grid">
-        <!-- Left: Headline & Action -->
-        <div class="hero-content">
-          <div class="pill-badge-orange">
-            <span class="badge-dot-orange"></span>
-            <span>NEXT-GEN AI MEDIA ENGINE • DEMO CONCEPT</span>
-          </div>
-
-          <h1 class="hero-headline">
-            Go all in on AI
-          </h1>
-
-          <p class="hero-subline">
-            Give every creator and team the golden path to use AI media engines, then watch retention multiply. AI video synthesis, security, and control in one platform.
-          </p>
-
-          <form class="hero-form" id="heroEmailForm">
-            <div class="input-wrapper">
-              <input type="email" placeholder="Enter your email to test..." required id="heroEmailInput" aria-label="Work Email Address" />
-            </div>
-            <button type="submit" class="hero-submit-btn btn-orange-gradient">
-              Book a Demo
-            </button>
-          </form>
-
-          <div class="hero-trust-bar">
-            <div class="trust-item">
-              <span class="trust-stat">0.12s</span> Latency
-            </div>
-            <div class="trust-divider"></div>
-            <div class="trust-item">
-              <span class="trust-stat">8K 120fps</span> Engine
-            </div>
-            <div class="trust-divider"></div>
-            <div class="trust-item">
-              <span class="trust-stat">SOC 2 Type II</span> Certified
-            </div>
-          </div>
+      <div class="hero-center-content">
+        <!-- Floating Pill Badge -->
+        <div class="hero-pill-badge">
+          <span class="badge-dot-orange"></span>
+          <span class="badge-text">Next-Gen AI Media Synthesis Platform</span>
         </div>
 
-        <!-- Right: Generative Soundwave Canvas with warm accents -->
-        <div class="hero-visual-col">
-          <div class="hero-soundwave-card">
-            <canvas id="heroWaveCanvas" width="540" height="220"></canvas>
+        <!-- High-Impact Main Headline -->
+        <h1 class="hero-headline">
+          Innovating Tomorrow.<br />
+          <span class="highlight-white-gradient">Rendering Today.</span>
+        </h1>
+
+        <p class="hero-subline">
+          Empowering creators with next-gen AI media synthesis from custom real-time pipelines to neural video generation, we engineer your digital retention.
+        </p>
+
+        <!-- Dual Action Buttons -->
+        <div class="hero-cta-row">
+          <button class="btn-action-primary" id="heroStartBtn">
+            <span>Get a Free Consultation</span>
+          </button>
+          <button class="btn-action-ghost" id="heroContactBtn">
+            <span>See Our Work</span>
+          </button>
+        </div>
+
+        <!-- Floating Glassmorphic Trust / Rating Bar -->
+        <div class="hero-rating-glass-bar">
+          <div class="rating-left-box">
+            <div class="star-row">★★★★★</div>
+            <div class="rating-meta">
+              <span>Rated 4.9/5 by</span>
+              <strong class="creator-count">1,200+</strong>
+              <span class="creator-sub">creators & studios</span>
+            </div>
+          </div>
+          
+          <div class="rating-divider"></div>
+
+          <div class="partner-logos-row">
+            <div class="partner-item"><span class="star-icon">★</span> Trustpilot</div>
+            <div class="partner-item"><i data-lucide="navigation" class="partner-icon"></i> Capterra</div>
+            <div class="partner-item"><span class="g2-icon">G</span> G2 Crowd</div>
+            <div class="partner-item"><i data-lucide="zap" class="partner-icon"></i> ProductHunt</div>
           </div>
         </div>
       </div>
+
+      <!-- 3 Fast 2D Interactive Dashboard Cards -->
+      <div class="hero-dashboard-grid" id="features">
+        
+        <!-- Dashboard Card 1: Complete Overview -->
+        <div class="dash-card card-overview card-2d-hover">
+          <div class="dash-card-top">
+            <div class="dash-icon-wrap">
+              <i data-lucide="eye"></i>
+            </div>
+          </div>
+          <h3 class="dash-card-title">A complete overview of our media actions.</h3>
+          <p class="dash-card-desc">
+            A clear frame-accurate snapshot of your render queue, AI auto-cuts, smart reframing, and active export decisions.
+          </p>
+          <div class="card-mini-stat">
+            <span class="mini-val">99.8%</span>
+            <span class="mini-lbl">Retention lock score</span>
+          </div>
+        </div>
+
+        <!-- Dashboard Card 2: Complete Statistics -->
+        <div class="dash-card card-stats card-2d-hover">
+          <div class="dash-card-top">
+            <div class="dash-icon-wrap">
+              <i data-lucide="bar-chart-2"></i>
+            </div>
+          </div>
+          <h3 class="dash-card-title">Complete statistics of your production.</h3>
+          <p class="dash-card-desc">
+            Get a clear, real-time picture of your timeline rendering throughput, neural dubbing latency, and GPU efficiency.
+          </p>
+          <div class="card-live-pill">
+            <span class="live-pulse"></span>
+            <span>Cluster 04 Active</span>
+          </div>
+        </div>
+
+        <!-- Dashboard Card 3: Throughput Area Chart -->
+        <div class="dash-card card-chart card-2d-hover">
+          <div class="dash-chart-header">
+            <span class="chart-title">Sales & Render Target</span>
+            <div class="chart-time-tabs">
+              <span class="tab-item">Year</span>
+              <span class="tab-item active">Month</span>
+              <span class="tab-item">Quart</span>
+            </div>
+          </div>
+
+          <div class="chart-svg-container">
+            <svg viewBox="0 0 400 160" class="render-area-chart" preserveAspectRatio="none" id="heroAreaChartSvg">
+              <defs>
+                <linearGradient id="orangeChartGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stop-color="#f97316" stop-opacity="0.7" />
+                  <stop offset="50%" stop-color="#ea580c" stop-opacity="0.25" />
+                  <stop offset="100%" stop-color="#ea580c" stop-opacity="0.0" />
+                </linearGradient>
+              </defs>
+              <line x1="0" y1="40" x2="400" y2="40" stroke="var(--border-chart-grid)" stroke-dasharray="3 3" />
+              <line x1="0" y1="80" x2="400" y2="80" stroke="var(--border-chart-grid)" stroke-dasharray="3 3" />
+              <line x1="0" y1="120" x2="400" y2="120" stroke="var(--border-chart-grid)" stroke-dasharray="3 3" />
+              
+              <path id="chartAreaFill" d="M 0 135 L 35 130 L 70 120 L 110 125 L 145 90 L 180 110 L 220 50 L 255 110 L 290 85 L 330 125 L 365 95 L 400 130 L 400 160 L 0 160 Z" fill="url(#orangeChartGrad)" />
+              <path id="chartLineStroke" d="M 0 135 L 35 130 L 70 120 L 110 125 L 145 90 L 180 110 L 220 50 L 255 110 L 290 85 L 330 125 L 365 95 L 400 130" fill="none" stroke="#f97316" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+              <circle id="chartPulseDot" cx="220" cy="50" r="5" fill="#ffffff" stroke="#f97316" stroke-width="2.5" class="pulsing-chart-dot" />
+            </svg>
+
+            <div class="chart-y-axis">
+              <span>$1m+</span>
+              <span>$800k</span>
+              <span>$400k</span>
+              <span>$0</span>
+            </div>
+          </div>
+
+          <div class="chart-x-axis">
+            <span>Q1</span>
+            <span>Q2</span>
+            <span>Q3</span>
+            <span>Q4</span>
+          </div>
+        </div>
+
+      </div>
     </section>
 
-    <!-- 3. PARTNER / STUDIO LOGOS GRID -->
-    <section class="partners-grid-section" aria-label="Featured Studios & Partners">
-      <div class="partners-grid">
-        <div class="partner-cell">
-          <div class="partner-logo-item">
-            <svg class="partner-svg" viewBox="0 0 130 32" width="115" fill="currentColor">
-              <path d="M12 2L2 12l10 10 10-10L12 2zm0 6l4 4-4 4-4-4 4-4z"/>
-              <text x="30" y="21" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="15" letter-spacing="1">VORTEX</text>
+    <!-- 3. WORKFLOW & BENTO SECTION -->
+    <section class="section-workflow" id="solutions">
+      <div class="workflow-grid">
+        
+        <div class="workflow-left-col">
+          <h2 class="workflow-headline">
+            <span class="highlight-gradient">Clarity</span> and Control in Every Click — <span class="highlight-gradient">Streamline</span>, <span class="highlight-gradient">Track</span>, and <span class="highlight-gradient">Grow</span> with Ease
+          </h2>
+          
+          <p class="workflow-sub">
+            Simplify post-production, gain instant insights, and accelerate audience retention with intelligent automation designed to keep your creative team running smarter and faster.
+          </p>
+
+          <button class="btn-action-primary" id="workflowControlBtn">
+            <span>Take Control</span>
+          </button>
+        </div>
+
+        <div class="workflow-right-col card-2d-hover">
+          <div class="tag-selector-box">
+            <button class="filter-pill" data-tag="strategy">Media Strategy</button>
+            <button class="filter-pill" data-tag="infra">Cloud Transcode</button>
+            <button class="filter-pill" data-tag="channels">Multi-Platform</button>
+            <button class="filter-pill active" data-tag="ai">Artificial Intelligence</button>
+            <button class="filter-pill" data-tag="render">Model Render</button>
+            <button class="filter-pill" data-tag="process">Process Optimization</button>
+            <button class="filter-pill" data-tag="auto">Studio Automation</button>
+            <button class="filter-pill" data-tag="growth">Retention Engine</button>
+          </div>
+
+          <div class="active-tag-preview-card" id="tagPreviewCard">
+            <div class="tag-preview-badge" id="previewBadge">Artificial Intelligence</div>
+            <p class="tag-preview-desc" id="previewDesc">
+              AI that saves hours of editing time, cuts compute costs, and automatically generates viral social cutdowns from long-form footage.
+            </p>
+          </div>
+
+          <div class="workflow-mini-cards">
+            <div class="mini-glass-tile card-2d-hover">
+              <div class="tile-top">
+                <span class="tile-icon-indicator orange-triangle">▲</span>
+                <span class="tile-title">CONVERSION</span>
+              </div>
+              <p class="tile-desc">Turn passive viewers into highly engaged subscribers.</p>
+              <a href="#solutions" class="tile-learn-more">Learn more →</a>
+            </div>
+
+            <div class="mini-glass-tile card-2d-hover">
+              <div class="tile-top">
+                <span class="tile-icon-indicator orange-square">■</span>
+                <span class="tile-title">ANALYTICS</span>
+              </div>
+              <p class="tile-desc">Clear retention heatmaps and data-driven edit moves.</p>
+              <a href="#solutions" class="tile-learn-more">Learn more →</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 4. FEATURE SPOTLIGHT TRIO -->
+    <section class="section-spotlight" id="why-us">
+      <div class="spotlight-header">
+        <h2 class="spotlight-main-title">
+          Your Media, Backed by <span class="highlight-gradient">Intelligence</span>
+        </h2>
+      </div>
+
+      <div class="spotlight-cards-grid">
+        
+        <!-- Spotlight Card 1: Vibrant Orange Card -->
+        <div class="spotlight-card card-vibrant-orange card-2d-hover">
+          <div class="spotlight-card-content">
+            <h3 class="spotlight-card-title">Process Automation</h3>
+            <p class="spotlight-card-desc">
+              We help creative teams automate routine timeline tasks, reduce manual workload, and ensure visual consistency — saving time and increasing overall output.
+            </p>
+          </div>
+
+          <!-- Pure GPU CSS Equalizer Wave -->
+          <div class="animated-bars-container" id="spotlightEqualizer">
+            <div class="eq-column eq-bar-1"></div>
+            <div class="eq-column eq-bar-2"></div>
+            <div class="eq-column eq-bar-3"></div>
+            <div class="eq-column eq-bar-4"></div>
+            <div class="eq-column eq-bar-5"></div>
+            <div class="eq-column eq-bar-6"></div>
+          </div>
+        </div>
+
+        <!-- Spotlight Card 2: Performance Analytics with Waveform Chart -->
+        <div class="spotlight-card card-dark-glass card-2d-hover">
+          <div class="spotlight-card-content">
+            <h3 class="spotlight-card-title">Performance Analytics</h3>
+            <p class="spotlight-card-desc">
+              We automate routine timeline processes to improve frame accuracy, speed up turnaround, and boost operational efficiency across global teams.
+            </p>
+          </div>
+
+          <div class="spotlight-svg-wrap">
+            <svg viewBox="0 0 300 100" class="stepped-chart" preserveAspectRatio="none" id="fluidSteppedChart">
+              <path id="fluidSteppedPath" d="M 0 80 L 40 85 L 60 40 L 90 70 L 120 75 L 150 15 L 180 85 L 210 70 L 240 60 L 270 20 L 300 80" fill="none" stroke="var(--chart-line-color)" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
           </div>
         </div>
-        <div class="partner-cell">
-          <div class="partner-logo-item">
-            <span class="partner-text-logo italic-brand">solaris</span>
-          </div>
-        </div>
-        <div class="partner-cell">
-          <div class="partner-logo-item">
-            <span class="partner-text-logo bold-brand">aurora</span>
-          </div>
-          <i data-lucide="arrow-up-right" class="cell-external-icon"></i>
-        </div>
-        <div class="partner-cell">
-          <div class="partner-logo-item">
-            <span class="partner-text-logo serif-brand">Aethel</span>
-          </div>
-        </div>
-        <div class="partner-cell">
-          <div class="partner-logo-item">
-            <span class="partner-text-logo modern-brand">Novak Labs</span>
-          </div>
-        </div>
-        <div class="partner-cell">
-          <div class="partner-logo-item">
-            <span class="partner-text-logo bold-brand">Hyperion</span>
-          </div>
-        </div>
-        <div class="partner-cell">
-          <div class="partner-logo-item">
-            <span class="partner-text-logo tech-brand"><span class="brand-x">✕</span> Krypton</span>
-          </div>
-        </div>
-        <div class="partner-cell">
-          <div class="partner-logo-item">
-            <div class="jane-brand-badge">Zenith</div>
-          </div>
-          <i data-lucide="arrow-up-right" class="cell-external-icon"></i>
-        </div>
-      </div>
-    </section>
 
-    <!-- 4. FEATURE BLOCK 1: AI CONTROL PLANE -->
-    <section class="feature-block-section" id="engine">
-      <div class="feature-block-header">
-        <span class="section-kicker">AI CONTROL PLANE</span>
-        <h2 class="section-title">
-          Secure and control everything agents do
-        </h2>
-      </div>
-
-      <div class="feature-block-layout">
-        <!-- Left Side: 4 Feature Items -->
-        <div class="feature-list-col">
-          
-          <div class="feature-item active" data-feature="reframe">
-            <div class="feature-item-icon">
-              <i data-lucide="search"></i>
-            </div>
-            <div class="feature-item-body">
-              <h3 class="feature-item-title">Shadow AI discovery</h3>
-              <p class="feature-item-desc">
-                Surface unmanaged media engines, models, plugins, and client configs, with full visibility into every timeline session.
-              </p>
-            </div>
+        <!-- Spotlight Card 3: Business Strategy with Glowing Donut Ring -->
+        <div class="spotlight-card card-dark-glass card-2d-hover">
+          <div class="spotlight-card-content">
+            <h3 class="spotlight-card-title">Render Strategy</h3>
+            <p class="spotlight-card-desc">
+              From audience targeting to long-term distribution, we help build video strategies that drive measurable views and retention results.
+            </p>
           </div>
 
-          <div class="feature-item" data-feature="hooks">
-            <div class="feature-item-icon">
-              <i data-lucide="clock"></i>
-            </div>
-            <div class="feature-item-body">
-              <h3 class="feature-item-title">Govern agent access and actions</h3>
-              <p class="feature-item-desc">
-                Set what users and agents can access, under which identity, budget, OAuth grant, and runtime conditions.
-              </p>
-            </div>
-          </div>
-
-          <div class="feature-item" data-feature="broll">
-            <div class="feature-item-icon">
-              <i data-lucide="lock"></i>
-            </div>
-            <div class="feature-item-body">
-              <h3 class="feature-item-title">Secure runtime execution</h3>
-              <p class="feature-item-desc">
-                Real-time security models scan tool calls, outputs, intent, and sensitive data before risky actions reach company systems.
-              </p>
-            </div>
-          </div>
-
-          <div class="feature-item" data-feature="mastering">
-            <div class="feature-item-icon">
-              <i data-lucide="dollar-sign"></i>
-            </div>
-            <div class="feature-item-body">
-              <h3 class="feature-item-title">Manage AI spend</h3>
-              <p class="feature-item-desc">
-                Monitor AI usage, cost, adoption, and agent activity in one place, then tie spend back to the teams and workflows getting real value.
-              </p>
-            </div>
-          </div>
-
-        </div>
-
-        <!-- Right Side: Interactive Preview -->
-        <div class="feature-display-col">
-          <div class="media-preview-container">
-            <div class="preview-chrome">
-              <div class="chrome-title" id="previewTitle">PRISM Engine — Live Autonomous Reframe</div>
-              <div class="chrome-status"><span class="pulse-orange-dot"></span> SIMULATED DEMO</div>
-            </div>
-
-            <div class="preview-canvas-area">
-              <div class="reframe-demo-scene" id="reframeScene">
-                <div class="subject-box" id="subjectBox">
-                  <div class="tracking-tag">Target: Speaker 01 [99.4%]</div>
-                </div>
-                <div class="aspect-pill-bar">
-                  <button class="aspect-pill active" data-ratio="16-9">16:9 Cinema</button>
-                  <button class="aspect-pill" data-ratio="9-16">9:16 Vertical</button>
-                  <button class="aspect-pill" data-ratio="1-1">1:1 Square</button>
-                  <button class="aspect-pill" data-ratio="4-5">4:5 Social</button>
-                </div>
-              </div>
-            </div>
-
-            <div class="preview-metrics-footer">
-              <span>Latency: <strong>42ms</strong></span>
-              <span>Codec: <strong>ProRes 4444 XQ</strong></span>
-              <span>Auto-Cuts: <strong>28 Detected</strong></span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Testimonial Quote Callout Box 1 -->
-      <div class="quote-callout-row">
-        <div class="quote-card">
-          <div class="quote-mark">“</div>
-          <div class="quote-content-block">
-            <div class="quote-text">
-              PRISM provides must-have visibility, control, and trust across all our video pipelines.
-            </div>
-            <div class="quote-author-block">
-              <div>
-                <div class="author-name">Marcus Vance</div>
-                <div class="author-role">Head of Creative Infrastructure • Synthetix</div>
-              </div>
-              <div class="avatar-placeholder">MV</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 5. FEATURE BLOCK 2: AI ENABLEMENT -->
-    <section class="feature-block-section" id="integrations">
-      <div class="feature-block-header">
-        <span class="section-kicker">AI ENABLEMENT</span>
-        <h2 class="section-title">
-          Get everyone delegating work to agents
-        </h2>
-      </div>
-
-      <div class="feature-block-layout">
-        <!-- Left Side: 3 Feature Items -->
-        <div class="feature-list-col">
-          
-          <div class="feature-item active">
-            <div class="feature-item-icon">
-              <i data-lucide="wrench"></i>
-            </div>
-            <div class="feature-item-body">
-              <h3 class="feature-item-title">Give agents the tools and context they need to do real work</h3>
-              <p class="feature-item-desc">
-                Start with 18,000+ connectors for the tools your team runs. Add internal endpoints, approve the right set, and serve them through a governed gateway across every major AI client.
-              </p>
-            </div>
-          </div>
-
-          <div class="feature-item">
-            <div class="feature-item-icon">
-              <i data-lucide="refresh-cw"></i>
-            </div>
-            <div class="feature-item-body">
-              <h3 class="feature-item-title">Turn team knowledge into reusable agent capabilities</h3>
-              <p class="feature-item-desc">
-                Package internal APIs, workflows, and styleguides as skills, presets, and plugins. Domain teams own what they build. AI Platform owns the route to safe reuse.
-              </p>
-            </div>
-          </div>
-
-          <div class="feature-item">
-            <div class="feature-item-icon">
-              <i data-lucide="plus-circle"></i>
-            </div>
-            <div class="feature-item-body">
-              <h3 class="feature-item-title">Let anyone create governed AI coworkers in seconds</h3>
-              <p class="feature-item-desc">
-                Creators describe the work they want done from the workspace they already use. PRISM creates the agent with governed tools, skills, memory, triggers, and scoped permissions.
-              </p>
-            </div>
-          </div>
-
-        </div>
-
-        <!-- Right Side: 3x3 App Grid -->
-        <div class="feature-display-col">
-          <div class="integration-app-grid">
-            
-            <!-- App 1: Github -->
-            <div class="app-card">
-              <div class="app-card-top">
-                <div class="app-icon-badge">
-                  <i data-lucide="github"></i>
-                </div>
-                <button class="app-add-btn"><i data-lucide="plus"></i></button>
-              </div>
-              <div class="app-name">Github</div>
-              <div class="app-desc">GitHub MCP server for code and repository management</div>
-            </div>
-
-            <!-- App 2: Microsoft Outlook -->
-            <div class="app-card">
-              <div class="app-card-top">
-                <div class="app-icon-badge" style="color: #0078d4;">
-                  <i data-lucide="mail"></i>
-                </div>
-                <button class="app-add-btn"><i data-lucide="plus"></i></button>
-              </div>
-              <div class="app-name">Microsoft Outlook</div>
-              <div class="app-desc">Microsoft MCP for managing email, calendar, and contacts</div>
-            </div>
-
-            <!-- App 3: Slack -->
-            <div class="app-card">
-              <div class="app-card-top">
-                <div class="app-icon-badge" style="color: #e01e5a;">
-                  <i data-lucide="message-square"></i>
-                </div>
-                <button class="app-add-btn"><i data-lucide="plus"></i></button>
-              </div>
-              <div class="app-name">Slack</div>
-              <div class="app-desc">Slack MCP server for team communication and channels</div>
-            </div>
-
-            <!-- App 4: Granola -->
-            <div class="app-card">
-              <div class="app-card-top">
-                <div class="app-icon-badge" style="color: #10b981;">
-                  <i data-lucide="mic"></i>
-                </div>
-                <button class="app-add-btn"><i data-lucide="plus"></i></button>
-              </div>
-              <div class="app-name">Granola</div>
-              <div class="app-desc">Granola MCP server for meeting transcription and notetaking</div>
-            </div>
-
-            <!-- App 5: Sentry -->
-            <div class="app-card">
-              <div class="app-card-top">
-                <div class="app-icon-badge" style="color: #8b5cf6;">
-                  <i data-lucide="shield-alert"></i>
-                </div>
-                <button class="app-add-btn"><i data-lucide="plus"></i></button>
-              </div>
-              <div class="app-name">Sentry</div>
-              <div class="app-desc">Sentry MCP server for error monitoring and triage</div>
-            </div>
-
-            <!-- App 6: Asana -->
-            <div class="app-card">
-              <div class="app-card-top">
-                <div class="app-icon-badge" style="color: #f43f5e;">
-                  <i data-lucide="check-square"></i>
-                </div>
-                <button class="app-add-btn"><i data-lucide="plus"></i></button>
-              </div>
-              <div class="app-name">Asana</div>
-              <div class="app-desc">Asana MCP server for task management, project workflows</div>
-            </div>
-
-            <!-- App 7: Zendesk -->
-            <div class="app-card">
-              <div class="app-card-top">
-                <div class="app-icon-badge" style="color: #03363d;">
-                  <i data-lucide="headphones"></i>
-                </div>
-                <button class="app-add-btn"><i data-lucide="plus"></i></button>
-              </div>
-              <div class="app-name">Zendesk</div>
-              <div class="app-desc">Zendesk MCP server for support tickets and case management</div>
-            </div>
-
-            <!-- App 8: Microsoft Teams -->
-            <div class="app-card">
-              <div class="app-card-top">
-                <div class="app-icon-badge" style="color: #6264a7;">
-                  <i data-lucide="users"></i>
-                </div>
-                <button class="app-add-btn"><i data-lucide="plus"></i></button>
-              </div>
-              <div class="app-name">Microsoft Teams</div>
-              <div class="app-desc">Microsoft MCP server for work chat and video conferencing</div>
-            </div>
-
-            <!-- App 9: Salesforce -->
-            <div class="app-card">
-              <div class="app-card-top">
-                <div class="app-icon-badge" style="color: #00a1e0;">
-                  <i data-lucide="cloud"></i>
-                </div>
-                <button class="app-add-btn"><i data-lucide="plus"></i></button>
-              </div>
-              <div class="app-name">Salesforce</div>
-              <div class="app-desc">Salesforce MCP server for CRM access and pipeline updates</div>
-            </div>
-
-          </div>
-        </div>
-      </div>
-
-      <!-- Testimonial Quote Callout Box 2 -->
-      <div class="quote-callout-row">
-        <div class="quote-card">
-          <div class="quote-mark">“</div>
-          <div class="quote-content-block">
-            <div class="quote-text">
-              PRISM makes AI media generation enterprise-ready.
-            </div>
-            <div class="quote-author-block">
-              <div>
-                <div class="author-name">Elena Rostova</div>
-                <div class="author-role">VP of Media Engineering • Kinetix Labs</div>
-              </div>
-              <div class="avatar-placeholder">ER</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 6. HIGH-IMPACT BENTO GRID SECTION (Interactive AI Tools) -->
-    <section class="bento-section" id="bento">
-      <div class="bento-header">
-        <span class="section-kicker">PRISM CORE MATRIX</span>
-        <h2 class="section-title">Engineered for absolute speed and creator retention</h2>
-      </div>
-
-      <div class="bento-grid">
-        
-        <!-- Bento 1: Dynamic Reframing -->
-        <div class="bento-card">
-          <div class="bento-card-header">
-            <div class="bento-icon-pill orange-tint"><i data-lucide="crop"></i></div>
-            <div>
-              <h3 class="bento-title">Smart Dynamic Reframing</h3>
-              <p class="bento-subtitle">Instant multi-ratio subject tracking with zero pixel stretching</p>
-            </div>
-          </div>
-          <div class="reframe-stage">
-            <div class="reframe-frame ratio-16-9" id="reframeFrame">
-              <div class="speaker-face"><i data-lucide="user"></i></div>
-            </div>
-          </div>
-          <div class="bento-btn-row">
-            <button class="bento-ratio-btn active" data-ratio="ratio-16-9">16:9 Wide</button>
-            <button class="bento-ratio-btn" data-ratio="ratio-9-16">9:16 Vertical</button>
-            <button class="bento-ratio-btn" data-ratio="ratio-1-1">1:1 Square</button>
-            <button class="bento-ratio-btn" data-ratio="ratio-4-5">4:5 Feed</button>
-          </div>
-        </div>
-
-        <!-- Bento 2: Audio Dubber & Equalizer -->
-        <div class="bento-card">
-          <div class="bento-card-header">
-            <div class="bento-icon-pill orange-tint"><i data-lucide="mic"></i></div>
-            <div>
-              <h3 class="bento-title">Voice Clone & Multi-Language Stems</h3>
-              <p class="bento-subtitle">Zero-latency neural voice synthesis with 40+ instant languages</p>
-            </div>
-          </div>
-          <div class="equalizer-bars" id="eqBarsContainer"></div>
-          <div class="audio-control-actions">
-            <div class="lang-selector">
-              <span class="lang-pill active" data-lang="en">EN</span>
-              <span class="lang-pill" data-lang="es">ES</span>
-              <span class="lang-pill" data-lang="ja">JP</span>
-              <span class="lang-pill" data-lang="de">DE</span>
-            </div>
-            <button class="audio-preview-toggle btn-orange-gradient" id="audioPreviewBtn">
-              <i data-lucide="volume-2"></i>
-              <span id="audioStatusLabel">Simulate Dub</span>
-            </button>
-          </div>
-        </div>
-
-        <!-- Bento 3: Prompt-to-Cut Terminal -->
-        <div class="bento-card">
-          <div class="bento-card-header">
-            <div class="bento-icon-pill orange-tint"><i data-lucide="terminal"></i></div>
-            <div>
-              <h3 class="bento-title">Prompt-to-Cut Terminal</h3>
-              <p class="bento-subtitle">Natural language commands translated into frame-accurate EDL cuts</p>
-            </div>
-          </div>
-          <div class="terminal-container">
-            <div class="terminal-top">
-              <span class="term-dot"></span>
-              <span class="term-dot"></span>
-              <span class="term-dot"></span>
-              <span class="term-title">prism-cli --session=portfolio_sandbox</span>
-            </div>
-            <div class="terminal-body" id="terminalOutput">
-              <div class="term-line"><span class="term-prompt">prism &gt;</span> <span class="term-text">analyze /demo/sample_rush.mp4 --detect-hooks</span></div>
-              <div class="term-line typing-target" id="terminalTypeTarget"><span class="term-prompt">prism &gt;</span> <span class="term-text" id="typedCommand">generate --aspect=9:16 --burn-captions</span></div>
-            </div>
-            <div class="terminal-quick-prompts">
-              <button class="prompt-chip" data-cmd="/auto-hook --top=3">/auto-hook</button>
-              <button class="prompt-chip" data-cmd="/dub-spanish">/dub-spanish</button>
-              <button class="prompt-chip" data-cmd="/broll-cinematic">/broll-insert</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Bento 4: Real-Time Speed Metric Counters -->
-        <div class="bento-card" id="bentoMetricsCard">
-          <div class="bento-card-header">
-            <div class="bento-icon-pill orange-tint"><i data-lucide="gauge"></i></div>
-            <div>
-              <h3 class="bento-title">Real-Time GPU Engine</h3>
-              <p class="bento-subtitle">Distributed H100 clusters delivering uncompromising speed</p>
-            </div>
-          </div>
-          <div class="metrics-stat-grid">
-            <div class="stat-box">
-              <div class="stat-number-wrap">
-                <span class="stat-number count-up text-orange-gradient" data-target="0.12" data-decimals="2">0.00</span>
-                <span>s</span>
-              </div>
-              <div class="stat-label">Inference Latency</div>
-              <div class="stat-sub">Instant timeline feedback</div>
-            </div>
-            <div class="stat-box">
-              <div class="stat-number-wrap">
-                <span class="stat-number count-up text-orange-gradient" data-target="14.8" data-decimals="1">0.0</span>
-                <span>M+</span>
-              </div>
-              <div class="stat-label">Clips Synthesized</div>
-              <div class="stat-sub">Simulated cluster throughput</div>
-            </div>
-            <div class="stat-box">
-              <div class="stat-number-wrap">
-                <span class="stat-number count-up text-orange-gradient" data-target="120" data-decimals="0">0</span>
-                <span>FPS</span>
-              </div>
-              <div class="stat-label">8K Transcode Speed</div>
-              <div class="stat-sub">Real-time ProRes</div>
-            </div>
-            <div class="stat-box">
-              <div class="stat-number-wrap">
-                <span class="stat-number count-up text-orange-gradient" data-target="99.98" data-decimals="2">0.00</span>
-                <span>%</span>
-              </div>
-              <div class="stat-label">Cluster Uptime</div>
-              <div class="stat-sub">Guaranteed SLA</div>
+          <div class="donut-chart-wrap">
+            <svg viewBox="0 0 120 120" class="donut-svg" id="fluidDonutSvg">
+              <circle cx="60" cy="60" r="45" class="donut-track" />
+              <circle cx="60" cy="60" r="45" class="donut-fill" stroke-dasharray="283" stroke-dashoffset="70" />
+            </svg>
+            <div class="donut-legend">
+              <div class="legend-item"><span class="dot-orange"></span> Completed (75%)</div>
+              <div class="legend-item"><span class="dot-dim"></span> Pending (25%)</div>
             </div>
           </div>
         </div>
@@ -596,78 +348,10 @@
       </div>
     </section>
 
-    <!-- 7. 3-COLUMN TESTIMONIAL GRID -->
-    <section class="trusted-platform-section">
-      <div class="trusted-banner-box">
-        <h2 class="trusted-banner-title">The trusted platform for transformation</h2>
-      </div>
-
-      <div class="testimonials-3col-grid">
-        
-        <!-- Testimonial 1 -->
-        <div class="testi-col">
-          <div class="testi-quote-mark">“</div>
-          <p class="testi-body">
-            PRISM helped us unlock a new, fundamentally different way to produce high-retention content.
-          </p>
-          <div class="testi-meta">
-            <div class="testi-author">Liam Chen</div>
-            <div class="testi-title">Head of Production • Omnivox</div>
-          </div>
-          <div class="testi-footer">
-            <span class="partner-text-logo bold-brand" style="font-size: 1.15rem;">aurora</span>
-            <a href="#case-studies" class="case-study-link">
-              <span>Read Case Study</span>
-              <i data-lucide="arrow-right"></i>
-            </a>
-          </div>
-        </div>
-
-        <!-- Testimonial 2 -->
-        <div class="testi-col">
-          <div class="testi-quote-mark">“</div>
-          <p class="testi-body">
-            PRISM has become the backbone of our autonomous AI strategy at Zenith.
-          </p>
-          <div class="testi-meta">
-            <div class="testi-author">Sophia Laurent</div>
-            <div class="testi-title">Director of Media Systems • Zenith Media</div>
-          </div>
-          <div class="testi-footer">
-            <div class="jane-brand-badge small">Zenith</div>
-            <a href="#case-studies" class="case-study-link">
-              <span>Read Case Study</span>
-              <i data-lucide="arrow-right"></i>
-            </a>
-          </div>
-        </div>
-
-        <!-- Testimonial 3 -->
-        <div class="testi-col">
-          <div class="testi-quote-mark">“</div>
-          <p class="testi-body">
-            PRISM enabled us to drive AI transformation without every render becoming another lengthy review.
-          </p>
-          <div class="testi-meta">
-            <div class="testi-author">Julian Rivera</div>
-            <div class="testi-title">Lead Technical Director • Aetheris</div>
-          </div>
-          <div class="testi-footer">
-            <span class="partner-text-logo modern-brand" style="font-size: 1.1rem;">aetheris</span>
-            <a href="#case-studies" class="case-study-link">
-              <span>Read Case Study</span>
-              <i data-lucide="arrow-right"></i>
-            </a>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- 8. PRICING SECTION -->
-    <section class="pricing-section" id="pricing">
+    <!-- 5. PRICING SECTION -->
+    <section class="section-pricing" id="pricing">
       <div class="pricing-header">
-        <span class="section-kicker">TRANSPARENT PLANS</span>
+        <span class="section-kicker-orange">TRANSPARENT PLANS</span>
         <h2 class="section-title">Scale seamlessly from solo creators to global teams</h2>
         
         <div class="pricing-toggle-wrap">
@@ -677,7 +361,7 @@
           </button>
           <span class="toggle-label active" id="annualLabel">
             Annual Billing
-            <span class="discount-pill orange-pill">SAVE 20%</span>
+            <span class="discount-badge-orange">SAVE 20%</span>
           </span>
         </div>
       </div>
@@ -685,7 +369,7 @@
       <div class="pricing-cards-grid">
         
         <!-- Starter Tier -->
-        <div class="pricing-card">
+        <div class="pricing-glass-card card-2d-hover">
           <div class="tier-name">Starter</div>
           <div class="tier-desc">Essential AI tools for independent creators & podcasts.</div>
           <div class="tier-price-row">
@@ -696,39 +380,39 @@
           <div class="billing-note">Billed annually ($288/yr)</div>
 
           <ul class="tier-features">
-            <li><i data-lucide="check" class="feat-check orange-check"></i> 60 Render Hours / month (4K 60fps)</li>
-            <li><i data-lucide="check" class="feat-check orange-check"></i> Smart Reframe (16:9 to 9:16 & 1:1)</li>
-            <li><i data-lucide="check" class="feat-check orange-check"></i> 5 Neural Voice Dub Languages</li>
-            <li><i data-lucide="check" class="feat-check orange-check"></i> Auto Hook & Silence Removal</li>
+            <li><i data-lucide="check" class="feat-check-orange"></i> 60 Render Hours / month (4K 60fps)</li>
+            <li><i data-lucide="check" class="feat-check-orange"></i> Smart Reframe (16:9 to 9:16 & 1:1)</li>
+            <li><i data-lucide="check" class="feat-check-orange"></i> 5 Neural Voice Dub Languages</li>
+            <li><i data-lucide="check" class="feat-check-orange"></i> Auto Hook & Silence Removal</li>
           </ul>
 
-          <button class="tier-btn btn-outline">Start Free Trial</button>
+          <button class="btn-tier-outline">Start Free Trial</button>
         </div>
 
         <!-- Pro Tier (Featured) -->
-        <div class="pricing-card featured-tier orange-highlight-card">
+        <div class="pricing-glass-card featured-pro-card card-2d-hover">
           <div class="popular-ribbon-orange">MOST POPULAR</div>
           <div class="tier-name">Pro Studio</div>
           <div class="tier-desc">Complete multi-track media synthesis engine for growing agencies.</div>
           <div class="tier-price-row">
             <span class="currency">$</span>
-            <span class="price-val text-orange-gradient" data-monthly="79" data-annual="64">64</span>
+            <span class="price-val highlight-gradient" data-monthly="79" data-annual="64">64</span>
             <span class="price-cycle">/month</span>
           </div>
-          <div class="billing-note">Billed annually ($768/yr)</div>
+          <div class="billing-note text-orange">Billed annually ($768/yr)</div>
 
           <ul class="tier-features">
-            <li><i data-lucide="check" class="feat-check orange-check"></i> 250 Render Hours / month (8K 120fps)</li>
-            <li><i data-lucide="check" class="feat-check orange-check"></i> 40+ Neural Voice Dub Languages + Lip-Sync</li>
-            <li><i data-lucide="check" class="feat-check orange-check"></i> Unlimited Generative 4K B-Roll Generation</li>
-            <li><i data-lucide="check" class="feat-check orange-check"></i> Full Export & XML Roundtrip</li>
+            <li><i data-lucide="check" class="feat-check-orange"></i> 250 Render Hours / month (8K 120fps)</li>
+            <li><i data-lucide="check" class="feat-check-orange"></i> 40+ Neural Voice Dub Languages + Lip-Sync</li>
+            <li><i data-lucide="check" class="feat-check-orange"></i> Unlimited Generative 4K B-Roll Generation</li>
+            <li><i data-lucide="check" class="feat-check-orange"></i> Full Export & XML Roundtrip</li>
           </ul>
 
-          <button class="tier-btn btn-orange-gradient">Get Started with Pro</button>
+          <button class="btn-action-primary w-full">Get Started with Pro</button>
         </div>
 
         <!-- Enterprise Tier -->
-        <div class="pricing-card">
+        <div class="pricing-glass-card card-2d-hover">
           <div class="tier-name">Enterprise</div>
           <div class="tier-desc">Dedicated cloud clusters, custom AI models, and air-gapped security.</div>
           <div class="tier-price-row">
@@ -739,79 +423,20 @@
           <div class="billing-note">Billed annually ($2,388/yr)</div>
 
           <ul class="tier-features">
-            <li><i data-lucide="check" class="feat-check orange-check"></i> Unlimited Render Hours on Dedicated Nodes</li>
-            <li><i data-lucide="check" class="feat-check orange-check"></i> Zero-Data Retention Guarantee (Air-gapped)</li>
-            <li><i data-lucide="check" class="feat-check orange-check"></i> Custom Voice & Face Model Fine-Tuning</li>
-            <li><i data-lucide="check" class="feat-check orange-check"></i> SOC 2 Type II, HIPAA & GDPR Certified</li>
+            <li><i data-lucide="check" class="feat-check-orange"></i> Unlimited Render Hours on Dedicated Nodes</li>
+            <li><i data-lucide="check" class="feat-check-orange"></i> Zero-Data Retention Guarantee (Air-gapped)</li>
+            <li><i data-lucide="check" class="feat-check-orange"></i> Custom Voice & Face Model Fine-Tuning</li>
+            <li><i data-lucide="check" class="feat-check-orange"></i> SOC 2 Type II, HIPAA & GDPR Certified</li>
           </ul>
 
-          <button class="tier-btn btn-outline">Contact Sales</button>
+          <button class="btn-tier-outline">Contact Sales</button>
         </div>
 
       </div>
     </section>
 
-    <!-- 9. "WHAT'S NEW?" CHANGELOG SECTION -->
-    <section class="whats-new-section" id="updates">
-      <div class="whats-new-header">
-        <h2 class="whats-new-title">What's new?</h2>
-        <a href="#changelog" class="read-blog-link">
-          <span>Read the blog</span>
-          <i data-lucide="arrow-right"></i>
-        </a>
-      </div>
-
-      <div class="whats-new-grid">
-        
-        <!-- News 1 -->
-        <div class="news-card">
-          <div class="news-date">June 24</div>
-          <h3 class="news-headline">PRISM 2.4 Released with Real-time 8K Neural Transcoding</h3>
-          <div class="news-footer">
-            <div class="news-arrow-btn">
-              <i data-lucide="arrow-right"></i>
-            </div>
-          </div>
-        </div>
-
-        <!-- News 2 -->
-        <div class="news-card">
-          <div class="news-date">May 20</div>
-          <h3 class="news-headline">Bi-directional neural color grading and auto timeline synchronization</h3>
-          <div class="news-footer">
-            <div class="news-arrow-btn">
-              <i data-lucide="arrow-right"></i>
-            </div>
-          </div>
-        </div>
-
-        <!-- News 3 -->
-        <div class="news-card">
-          <div class="news-date">May 12</div>
-          <h3 class="news-headline">PRISM Named Top Media AI Engine at Global Tech Summit 2026</h3>
-          <div class="news-footer">
-            <div class="news-arrow-btn">
-              <i data-lucide="arrow-right"></i>
-            </div>
-          </div>
-        </div>
-
-        <!-- News 4 -->
-        <div class="news-card">
-          <div class="news-date">April 15</div>
-          <h3 class="news-headline">Enterprise Zero-Data Retention SLA & SOC2 Type II Certification</h3>
-          <div class="news-footer">
-            <div class="news-arrow-btn">
-              <i data-lucide="arrow-right"></i>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- 10. FAQ ACCORDION -->
-    <section class="faq-section" id="faq">
+    <!-- 6. FAQ ACCORDION -->
+    <section class="section-faq" id="faq">
       <div class="faq-grid">
         <div class="faq-title-col">
           <h2 class="faq-main-title">
@@ -820,10 +445,9 @@
         </div>
 
         <div class="faq-accordion-col">
-          
           <div class="faq-item">
             <button class="faq-trigger" aria-expanded="false">
-              <span>Who is PRISM for?</span>
+              <span>Who is PRISM designed for?</span>
               <i data-lucide="chevron-down" class="faq-chevron"></i>
             </button>
             <div class="faq-content">
@@ -847,60 +471,46 @@
 
           <div class="faq-item">
             <button class="faq-trigger" aria-expanded="false">
-              <span>How does PRISM work with our existing stack?</span>
+              <span>Is this live website a commercial product?</span>
               <i data-lucide="chevron-down" class="faq-chevron"></i>
             </button>
             <div class="faq-content">
               <p>
-                PRISM connects directly through standard XML/EDL export formats, REST APIs, and native cloud render pipelines without altering your original camera raw assets.
+                <strong>No.</strong> This is an interactive demonstration project built to showcase modern web engineering, SVG animations, glassmorphic UI design, and responsive frontend architecture for portfolio presentation.
               </p>
             </div>
           </div>
 
           <div class="faq-item">
             <button class="faq-trigger" aria-expanded="false">
-              <span>Is our raw media used to train public AI models?</span>
+              <span>What video codecs and resolutions are supported in the concept?</span>
               <i data-lucide="chevron-down" class="faq-chevron"></i>
             </button>
             <div class="faq-content">
               <p>
-                <strong>Never.</strong> PRISM enforces an enterprise zero-data retention guarantee. Your assets are processed in isolated encrypted buffers and purged immediately upon render export.
+                PRISM natively conceptualizes Apple ProRes (422, 422 HQ, 4444 XQ), Avid DNxHR, H.264, and HEVC/H.265 up to 8K DCI at 120 frames per second with 10-bit and 12-bit color spaces.
               </p>
             </div>
           </div>
-
-          <div class="faq-item">
-            <button class="faq-trigger" aria-expanded="false">
-              <span>What video codecs and resolutions are supported?</span>
-              <i data-lucide="chevron-down" class="faq-chevron"></i>
-            </button>
-            <div class="faq-content">
-              <p>
-                PRISM natively supports Apple ProRes (422, 422 HQ, 4444 XQ), Avid DNxHR, H.264, and HEVC/H.265 up to 8K DCI at 120 frames per second with 10-bit and 12-bit color spaces.
-              </p>
-            </div>
-          </div>
-
         </div>
       </div>
     </section>
 
-    <!-- 11. BOTTOM CTA BANNER with Warm Orange Aura Glow -->
-    <section class="bottom-cta-section">
-      <div class="cta-orange-aura"></div>
+    <!-- 7. BOTTOM CTA BANNER -->
+    <section class="section-bottom-cta">
+      <div class="cta-orange-backdrop liquid-blob-cta"></div>
 
       <div class="cta-banner-card">
-        
         <div class="cta-emblem-wrap">
-          <div class="asterisk-emblem orange-emblem">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <div class="asterisk-emblem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M12 2v20M2 12h20M4.93 4.93l14.14 14.14M4.93 19.07l14.14-14.14"/>
             </svg>
           </div>
         </div>
 
         <div class="cta-badge-pill">
-          <span>SEE THE PLATFORM IN ACTION</span>
+          <span>SEE THE ENGINE IN ACTION</span>
         </div>
 
         <h2 class="cta-main-title">
@@ -909,48 +519,44 @@
 
         <form class="cta-banner-form" id="bottomCtaForm">
           <div class="cta-input-box">
-            <input type="email" placeholder="Enter your email..." required id="bottomEmailInput" aria-label="Work Email Address" />
+            <input type="email" placeholder="Enter your email to test..." required id="bottomEmailInput" aria-label="Work Email Address" />
           </div>
-          <button type="submit" class="cta-black-btn btn-orange-gradient">
+          <button type="submit" class="btn-action-primary">
             Book a Demo
           </button>
         </form>
-
       </div>
     </section>
 
-    <!-- 12. ENTERPRISE FOOTER WITH PORTFOLIO DISCLAIMER -->
+    <!-- 8. ENTERPRISE FOOTER WITH PORTFOLIO NOTICE -->
     <footer class="site-footer">
       <div class="footer-top-grid">
         
-        <!-- Column 1: Brand -->
         <div class="footer-brand-col">
           <div class="brand-logo">
-            <div class="logo-symbol orange-symbol">
+            <div class="logo-symbol">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
                 <path d="M12 2v20M2 12h20M4.93 4.93l14.14 14.14M4.93 19.07l14.14-14.14"/>
               </svg>
             </div>
-            <span class="brand-name">PRISM</span>
+            <span class="brand-name">PRISM<span class="dot-accent">.</span></span>
           </div>
           <p class="footer-bio">
-            Portfolio project demo showcasing modern editorial frontend architecture, procedural canvas graphics, and interactive design systems.
+            Portfolio project demo showcasing modern dark/light glassmorphic frontend architecture, organic liquid blobs, and fluid interactive design systems.
           </p>
         </div>
 
-        <!-- Column 2: Platform -->
         <div class="footer-nav-col">
           <div class="footer-col-header">Platform</div>
           <ul class="footer-links">
-            <li><a href="#engine">Overview</a></li>
-            <li><a href="#engine">Smart Reframe</a></li>
-            <li><a href="#bento">Voice Synthesis</a></li>
-            <li><a href="#bento">Asset Catalog</a></li>
-            <li><a href="#bento">Render Engine</a></li>
+            <li><a href="#hero">Overview</a></li>
+            <li><a href="#solutions">Smart Reframe</a></li>
+            <li><a href="#solutions">Voice Synthesis</a></li>
+            <li><a href="#features">Asset Catalog</a></li>
+            <li><a href="#features">Render Engine</a></li>
           </ul>
         </div>
 
-        <!-- Column 3: Control -->
         <div class="footer-nav-col">
           <div class="footer-col-header">Control</div>
           <ul class="footer-links">
@@ -961,7 +567,6 @@
           </ul>
         </div>
 
-        <!-- Column 4: Solutions -->
         <div class="footer-nav-col">
           <div class="footer-col-header">Solutions</div>
           <ul class="footer-links">
@@ -971,7 +576,6 @@
           </ul>
         </div>
 
-        <!-- Column 5: Company -->
         <div class="footer-nav-col">
           <div class="footer-col-header">Company</div>
           <ul class="footer-links">
@@ -981,19 +585,16 @@
           </ul>
         </div>
 
-        <!-- Column 6: Resources -->
         <div class="footer-nav-col">
           <div class="footer-col-header">Resources</div>
           <ul class="footer-links">
             <li><a href="#">Blog</a></li>
             <li><a href="#">API Docs</a></li>
-            <li><a href="#">Trust Center</a></li>
             <li><a href="#">GitHub Repo</a></li>
             <li><a href="#">Demo Notice</a></li>
           </ul>
         </div>
 
-        <!-- Social & Ext Links -->
         <div class="footer-social-col">
           <div class="social-icon-row">
             <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="social-link-btn" aria-label="X">
@@ -1011,7 +612,7 @@
       <div class="footer-portfolio-disclaimer">
         <div class="disclaimer-inner">
           <i data-lucide="info" class="disclaimer-icon"></i>
-          <span><strong>Portfolio Demonstration Notice:</strong> This website is a conceptual prototype built for personal web development portfolio showcase only. It is not an active commercial SaaS product or a registered enterprise entity. All brand names, metrics, and workflows are simulated demonstrations.</span>
+          <span><strong>Portfolio Demonstration Notice:</strong> This website is a conceptual prototype built for personal web development portfolio showcase only. It is not an active commercial SaaS product. All brand names, metrics, and workflows are simulated demonstrations.</span>
         </div>
       </div>
 
@@ -1019,33 +620,17 @@
       <div class="footer-bottom-bar">
         <div class="footer-bar-left">
           <span class="llms-tag">PORTFOLIO DEMO</span>
-          <span class="ai-summary-note">Built with HTML5, CSS3, ES6 & Canvas</span>
-          <div class="mini-icon-row">
-            <i data-lucide="sparkles"></i>
-            <i data-lucide="cpu"></i>
-            <i data-lucide="code"></i>
-          </div>
+          <span class="ai-summary-note">Optimized 120FPS GPU CSS Animations • Zero JS Overhead</span>
         </div>
 
         <div class="footer-bar-center">
-          <div class="cert-item">
-            <i data-lucide="check-circle"></i>
-            <span>Interactive Demo</span>
-          </div>
-          <div class="cert-item">
-            <i data-lucide="shield-check"></i>
-            <span>Portfolio Project</span>
-          </div>
-          <div class="cert-item">
-            <i data-lucide="zap"></i>
-            <span>Simulated Workflows</span>
-          </div>
+          <div class="cert-item"><i data-lucide="check-circle"></i><span>Interactive Demo</span></div>
+          <div class="cert-item"><i data-lucide="shield-check"></i><span>Portfolio Project</span></div>
+          <div class="cert-item"><i data-lucide="zap"></i><span>Simulated Workflows</span></div>
         </div>
 
         <div class="footer-bar-right">
           <span>&copy; 2026 Developer Portfolio Showcase</span>
-          <a href="#">Demo Notice</a>
-          <a href="#">Privacy</a>
         </div>
       </div>
     </footer>
@@ -1073,7 +658,7 @@
             <label for="demoCompany">Simulated Studio / Organization</label>
             <input type="text" id="demoCompany" placeholder="Vortex Creative" required />
           </div>
-          <button type="submit" class="btn-orange-gradient modal-submit">
+          <button type="submit" class="btn-action-primary modal-submit">
             <span>Launch Simulated Sandbox</span>
           </button>
         </form>
@@ -1087,12 +672,12 @@
       <button class="badge-dismiss-btn" id="dismissBadgeBtn" aria-label="Dismiss Badge">&times;</button>
     </div>
 
-    <!-- Notification Toast -->
+    <!-- Toast Notification Container -->
     <div class="toast-container" id="toastContainer"></div>
 
   </div>
 
-  <!-- Interactive Logic -->
+  <!-- Interactive Script -->
   <script src="app.js"></script>
 </body>
 </html>

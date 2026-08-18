@@ -1,5 +1,8 @@
 /* ==========================================================================
-   EXACT 1.PNG RUNLAYER EDITORIAL INTERACTION ENGINE (WITH ORANGE ACCENTS)
+   PRISM — HIGH-PERFORMANCE INTERACTION & SCROLLSPY ENGINE
+   Features: Asynchronous IntersectionObserver Scrollspy, Clean 2D Interactions,
+   Theme Switcher, Dynamic Matrix, Pricing Switcher, Modals & Toast.
+   Zero Continuous JS Loops • 100% Native Performance
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -9,7 +12,83 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // --------------------------------------------------------------------------
-  // TOP ANNOUNCEMENT BAR & FLOATING BADGE CLOSE
+  // 2. THEME SWITCHER (Dark Mode / Light Mode with Sun & Moon Icons)
+  // --------------------------------------------------------------------------
+  const themeToggleBtn = document.getElementById('themeToggleBtn');
+  const htmlRoot = document.documentElement;
+
+  const savedTheme = localStorage.getItem('prism-theme') || 'dark';
+  applyTheme(savedTheme);
+
+  function applyTheme(theme) {
+    if (theme === 'light') {
+      htmlRoot.classList.remove('dark');
+      htmlRoot.classList.add('light');
+    } else {
+      htmlRoot.classList.remove('light');
+      htmlRoot.classList.add('dark');
+    }
+    localStorage.setItem('prism-theme', theme);
+    if (window.lucide) {
+      lucide.createIcons();
+    }
+  }
+
+  themeToggleBtn?.addEventListener('click', () => {
+    const isDark = htmlRoot.classList.contains('dark');
+    const newTheme = isDark ? 'light' : 'dark';
+    applyTheme(newTheme);
+    showToast(`Switched to ${newTheme.toUpperCase()} mode`);
+  });
+
+  // --------------------------------------------------------------------------
+  // 3. ZERO-LAG ASYNCHRONOUS SCROLLSPY (INTERSECTION OBSERVER)
+  // --------------------------------------------------------------------------
+  const navLinks = document.querySelectorAll('.main-nav .nav-link');
+  const sectionElements = document.querySelectorAll('section[id], .hero-dashboard-grid[id]');
+
+  const observerOptions = {
+    root: null,
+    rootMargin: '-20% 0px -60% 0px',
+    threshold: 0
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.getAttribute('id');
+        navLinks.forEach(link => {
+          if (link.dataset.section === id) {
+            link.classList.add('active');
+          } else {
+            link.classList.remove('active');
+          }
+        });
+      }
+    });
+  }, observerOptions);
+
+  sectionElements.forEach(section => observer.observe(section));
+
+  // Native Smooth Scroll on Nav Link Clicks with Offset
+  navLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const targetId = link.getAttribute('href')?.substring(1);
+      const targetEl = document.getElementById(targetId);
+
+      if (targetEl) {
+        const topOffset = targetEl.getBoundingClientRect().top + window.scrollY - 90;
+        window.scrollTo({
+          top: topOffset,
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
+
+  // --------------------------------------------------------------------------
+  // 4. TOP ANNOUNCEMENT & FLOATING BADGE DISMISS
   // --------------------------------------------------------------------------
   const announcementBar = document.getElementById('announcementBar');
   const closeAnnouncementBtn = document.getElementById('closeAnnouncementBtn');
@@ -32,271 +111,81 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // --------------------------------------------------------------------------
-  // 2. HERO GENERATIVE SOUNDWAVE CANVAS (With subtle warm gradient depth)
+  // 5. DYNAMIC MATRIX TAG SELECTOR (Workflow Section)
   // --------------------------------------------------------------------------
-  const canvas = document.getElementById('heroWaveCanvas');
-  let ctx = canvas ? canvas.getContext('2d') : null;
-  let phase = 0;
+  const filterPills = document.querySelectorAll('.filter-pill');
+  const previewBadge = document.getElementById('previewBadge');
+  const previewDesc = document.getElementById('previewDesc');
 
-  function resizeCanvas() {
-    if (!canvas) return;
-    const rect = canvas.getBoundingClientRect();
-    canvas.width = rect.width * (window.devicePixelRatio || 1);
-    canvas.height = rect.height * (window.devicePixelRatio || 1);
-    if (ctx) ctx.scale(window.devicePixelRatio || 1, window.devicePixelRatio || 1);
-  }
-  window.addEventListener('resize', resizeCanvas);
-  resizeCanvas();
-
-  function renderExactHeroSoundwave() {
-    if (!canvas || !ctx) return;
-    const w = canvas.getBoundingClientRect().width;
-    const h = canvas.getBoundingClientRect().height;
-
-    ctx.clearRect(0, 0, w, h);
-    phase += 0.025;
-
-    const centerY = h / 2;
-    const numVerticalLines = 84;
-    const spacing = 3.8;
-    const startX = 20;
-
-    // 1. Draw Vertical Waveform Tick Lines
-    for (let i = 0; i < numVerticalLines; i++) {
-      const x = startX + i * spacing;
-      const norm = i / numVerticalLines;
-      
-      const envelope = Math.sin(norm * Math.PI);
-      const wave = Math.sin(i * 0.28 + phase * 1.5) * 0.6 + Math.cos(i * 0.12 - phase) * 0.4;
-      
-      let lineHalfHeight = (wave * 58 + 16) * Math.pow(envelope, 1.2);
-      lineHalfHeight = Math.max(2, lineHalfHeight);
-
-      // Transition from warm orange accent in the core to dark charcoal
-      const isCore = Math.abs(i - numVerticalLines * 0.45) < 12;
-      ctx.strokeStyle = isCore ? '#ea580c' : '#1e293b';
-      ctx.lineWidth = 1;
-
-      const alpha = 0.25 + 0.75 * envelope;
-      ctx.globalAlpha = alpha;
-
-      ctx.beginPath();
-      ctx.moveTo(x, centerY - lineHalfHeight);
-      ctx.lineTo(x, centerY + lineHalfHeight);
-      ctx.stroke();
+  const tagDetails = {
+    strategy: {
+      badge: 'Media Strategy',
+      desc: 'Formulate predictive content release schedules and format retargeting strategies based on algorithmic viewer retention data.'
+    },
+    infra: {
+      badge: 'Cloud Transcode',
+      desc: 'Distributed GPU encoding clusters delivering real-time ProRes 4444 XQ and AV1 streams with sub-100ms pipeline latency.'
+    },
+    channels: {
+      badge: 'Multi-Platform Retargeting',
+      desc: 'Instantly conform raw timeline footage into 9:16 vertical shorts, 1:1 feeds, and 16:9 cinematic outputs with automatic subject framing.'
+    },
+    ai: {
+      badge: 'Artificial Intelligence',
+      desc: 'AI that saves hours of editing time, cuts compute costs, and automatically generates viral social cutdowns from long-form footage.'
+    },
+    render: {
+      badge: 'Model Render & Synthesis',
+      desc: 'Neural generative scene expansion, background inpainting, and zero-flicker frame interpolation powered by custom edge models.'
+    },
+    process: {
+      badge: 'Process Optimization',
+      desc: 'Streamline multi-camera synchronization, automated loudness mastering (-14 LUFS standard), and XML timeline roundtrips.'
+    },
+    auto: {
+      badge: 'Studio Automation',
+      desc: 'Trigger autonomous batch rendering from webhook events, cloud storage uploads, or scheduled calendar drops.'
+    },
+    growth: {
+      badge: 'Retention Engine',
+      desc: 'Detect the highest energy hooks in raw footage to create magnetic first 3-second openers that maximize viewer engagement.'
     }
+  };
 
-    // 2. Draw Horizontal Parallel Rays extending to the Right
-    const rayStartX = startX + (numVerticalLines * spacing) * 0.55;
-    const rayEndX = w - 10;
-    const numHorizontalRays = 18;
-    const raySpacing = 3.2;
-
-    for (let j = -numHorizontalRays / 2; j <= numHorizontalRays / 2; j++) {
-      const y = centerY + j * raySpacing;
-      const rayAlpha = Math.max(0.12, 1 - Math.abs(j) / (numHorizontalRays / 2) * 0.85);
-
-      ctx.strokeStyle = Math.abs(j) < 3 ? '#ea580c' : '#334155';
-      ctx.globalAlpha = rayAlpha * 0.9;
-      ctx.beginPath();
-      ctx.moveTo(rayStartX, y);
-      ctx.lineTo(rayEndX, y);
-      ctx.stroke();
-    }
-
-    ctx.globalAlpha = 1.0;
-    requestAnimationFrame(renderExactHeroSoundwave);
-  }
-
-  renderExactHeroSoundwave();
-
-  // --------------------------------------------------------------------------
-  // 3. AI DIRECT ENGINE — INTERACTIVE FEATURE ACCORDION
-  // --------------------------------------------------------------------------
-  const featureItems = document.querySelectorAll('.feature-item');
-  const previewTitle = document.getElementById('previewTitle');
-  const subjectBox = document.getElementById('subjectBox');
-
-  const titles = [
-    'PRISM Engine — Live Autonomous Reframe [16:9 → 9:16]',
-    'PRISM Engine — Dynamic Hook & Retention Analyzer',
-    'PRISM Engine — Real-Time Secure Runtime Execution',
-    'PRISM Engine — AI Spend & Usage Observability'
-  ];
-
-  featureItems.forEach((item, index) => {
-    item.addEventListener('click', () => {
-      featureItems.forEach(f => f.classList.remove('active'));
-      item.classList.add('active');
-
-      if (previewTitle && titles[index]) {
-        previewTitle.textContent = titles[index];
-      }
-    });
-  });
-
-  // Aspect ratio controls
-  const aspectPills = document.querySelectorAll('.aspect-pill');
-  aspectPills.forEach(pill => {
+  filterPills.forEach(pill => {
     pill.addEventListener('click', () => {
-      aspectPills.forEach(p => p.classList.remove('active'));
+      filterPills.forEach(p => p.classList.remove('active'));
       pill.classList.add('active');
-      const ratio = pill.dataset.ratio;
 
-      if (subjectBox) {
-        if (ratio === '16-9') {
-          subjectBox.style.width = '200px';
-          subjectBox.style.height = '120px';
-        } else if (ratio === '9-16') {
-          subjectBox.style.width = '100px';
-          subjectBox.style.height = '180px';
-        } else if (ratio === '1-1') {
-          subjectBox.style.width = '140px';
-          subjectBox.style.height = '140px';
-        } else if (ratio === '4-5') {
-          subjectBox.style.width = '125px';
-          subjectBox.style.height = '155px';
-        }
-      }
-      showToast(`Viewport retargeted to ${pill.textContent}`);
-    });
-  });
-
-  // --------------------------------------------------------------------------
-  // 4. STUDIO INTEGRATIONS 3x3 APP GRID
-  // --------------------------------------------------------------------------
-  const appCards = document.querySelectorAll('.app-card');
-  appCards.forEach(card => {
-    card.addEventListener('click', () => {
-      const name = card.querySelector('.app-name')?.textContent || 'App';
-      showToast(`Connected ${name} MCP server to gateway (Simulated)`);
-    });
-  });
-
-  // --------------------------------------------------------------------------
-  // 5. BENTO GRID 1: REFRAME SANDBOX
-  // --------------------------------------------------------------------------
-  const bentoRatioBtns = document.querySelectorAll('.bento-ratio-btn');
-  const reframeFrame = document.getElementById('reframeFrame');
-
-  bentoRatioBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      bentoRatioBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      const ratioClass = btn.dataset.ratio;
-      if (reframeFrame) {
-        reframeFrame.className = `reframe-frame ${ratioClass}`;
+      const tagKey = pill.dataset.tag;
+      const data = tagDetails[tagKey];
+      if (data && previewBadge && previewDesc) {
+        previewBadge.style.opacity = '0';
+        previewDesc.style.opacity = '0';
+        setTimeout(() => {
+          previewBadge.textContent = data.badge;
+          previewDesc.textContent = data.desc;
+          previewBadge.style.opacity = '1';
+          previewDesc.style.opacity = '1';
+        }, 120);
       }
     });
   });
 
   // --------------------------------------------------------------------------
-  // 6. BENTO GRID 2: EQUALIZER & DUBBING
+  // 6. HERO AREA CHART TIME TABS
   // --------------------------------------------------------------------------
-  const eqContainer = document.getElementById('eqBarsContainer');
-  if (eqContainer) {
-    const numEqBars = 24;
-    for (let i = 0; i < numEqBars; i++) {
-      const bar = document.createElement('div');
-      bar.className = 'eq-bar';
-      bar.style.height = `${Math.floor(Math.random() * 60) + 15}%`;
-      eqContainer.appendChild(bar);
-    }
-
-    setInterval(() => {
-      const bars = eqContainer.querySelectorAll('.eq-bar');
-      bars.forEach(bar => {
-        const h = Math.floor(Math.random() * 80) + 10;
-        bar.style.height = `${h}%`;
-      });
-    }, 130);
-  }
-
-  const langPills = document.querySelectorAll('.lang-pill');
-  langPills.forEach(pill => {
-    pill.addEventListener('click', () => {
-      langPills.forEach(l => l.classList.remove('active'));
-      pill.classList.add('active');
-      showToast(`Dub target: ${pill.textContent} (Simulated)`);
-    });
-  });
-
-  const audioPreviewBtn = document.getElementById('audioPreviewBtn');
-  const audioStatusLabel = document.getElementById('audioStatusLabel');
-  let isDubbing = false;
-
-  if (audioPreviewBtn && audioStatusLabel) {
-    audioPreviewBtn.addEventListener('click', () => {
-      isDubbing = !isDubbing;
-      audioStatusLabel.textContent = isDubbing ? 'Dub Synthesized' : 'Simulate Dub';
-      showToast(isDubbing ? 'Neural voice stem synthesized (Demo)' : 'Reset dub test');
-    });
-  }
-
-  // --------------------------------------------------------------------------
-  // 7. BENTO GRID 3: TERMINAL
-  // --------------------------------------------------------------------------
-  const typedCommand = document.getElementById('typedCommand');
-  const promptChips = document.querySelectorAll('.prompt-chip');
-  const terminalOutput = document.getElementById('terminalOutput');
-
-  promptChips.forEach(chip => {
-    chip.addEventListener('click', () => {
-      const cmd = chip.dataset.cmd;
-      if (!cmd || !typedCommand) return;
-      typedCommand.textContent = cmd;
-      if (terminalOutput) {
-        const line = document.createElement('div');
-        line.className = 'term-line';
-        line.innerHTML = `<span class="term-prompt">prism &gt;</span> <span>${cmd} — Demo Response OK</span>`;
-        terminalOutput.appendChild(line);
-      }
-      showToast(`Ran simulated command: ${cmd}`);
+  const chartTabs = document.querySelectorAll('.chart-time-tabs .tab-item');
+  chartTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      chartTabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      showToast(`Viewing ${tab.textContent} throughput data`);
     });
   });
 
   // --------------------------------------------------------------------------
-  // 8. BENTO GRID 4: COUNT-UP METRICS
-  // --------------------------------------------------------------------------
-  const countUpElements = document.querySelectorAll('.count-up');
-  let hasAnimatedCount = false;
-
-  const countObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting && !hasAnimatedCount) {
-        hasAnimatedCount = true;
-        countUpElements.forEach(el => {
-          const target = parseFloat(el.dataset.target || '0');
-          const decimals = parseInt(el.dataset.decimals || '0', 10);
-          const duration = 1400;
-          const startTime = performance.now();
-
-          function updateCount(currentTime) {
-            const elapsed = currentTime - startTime;
-            const progress = Math.min(elapsed / duration, 1);
-            const easeProgress = 1 - Math.pow(1 - progress, 3);
-            const currentVal = easeProgress * target;
-
-            el.textContent = currentVal.toFixed(decimals);
-
-            if (progress < 1) {
-              requestAnimationFrame(updateCount);
-            } else {
-              el.textContent = target.toFixed(decimals);
-            }
-          }
-
-          requestAnimationFrame(updateCount);
-        });
-      }
-    });
-  }, { threshold: 0.3 });
-
-  const metricsCard = document.getElementById('bentoMetricsCard');
-  if (metricsCard) countObserver.observe(metricsCard);
-
-  // --------------------------------------------------------------------------
-  // 9. PRICING SWITCHER
+  // 7. PRICING SWITCHER (Monthly vs Annual with 20% Discount)
   // --------------------------------------------------------------------------
   const billingToggleBtn = document.getElementById('billingToggleBtn');
   const monthlyLabel = document.getElementById('monthlyLabel');
@@ -341,7 +230,7 @@ document.addEventListener('DOMContentLoaded', () => {
   annualLabel?.addEventListener('click', () => { isAnnual = true; updatePricing(); });
 
   // --------------------------------------------------------------------------
-  // 10. FAQ ACCORDION
+  // 8. FAQ ACCORDION
   // --------------------------------------------------------------------------
   const faqItems = document.querySelectorAll('.faq-item');
   faqItems.forEach(item => {
@@ -360,11 +249,15 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // --------------------------------------------------------------------------
-  // 11. MODAL & TOAST
+  // 9. MODAL & TOAST HANDLERS
   // --------------------------------------------------------------------------
   const demoModal = document.getElementById('demoModal');
   const modalCloseBtn = document.getElementById('modalCloseBtn');
-  const navBookBtn = document.getElementById('navBookBtn');
+  const navGetStartedBtn = document.getElementById('navGetStartedBtn');
+  const navRequestDemoBtn = document.getElementById('navRequestDemoBtn');
+  const heroStartBtn = document.getElementById('heroStartBtn');
+  const heroContactBtn = document.getElementById('heroContactBtn');
+  const workflowControlBtn = document.getElementById('workflowControlBtn');
   const modalForm = document.getElementById('modalForm');
 
   function openModal() {
@@ -381,30 +274,27 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  navBookBtn?.addEventListener('click', openModal);
+  navGetStartedBtn?.addEventListener('click', openModal);
+  navRequestDemoBtn?.addEventListener('click', openModal);
+  heroStartBtn?.addEventListener('click', openModal);
+  heroContactBtn?.addEventListener('click', openModal);
+  workflowControlBtn?.addEventListener('click', openModal);
   modalCloseBtn?.addEventListener('click', closeModal);
   demoModal?.addEventListener('click', (e) => {
     if (e.target === demoModal) closeModal();
-  });
-
-  const heroForm = document.getElementById('heroEmailForm');
-  heroForm?.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const email = document.getElementById('heroEmailInput')?.value;
-    showToast(`Demo request simulated for ${email}!`);
   });
 
   const bottomForm = document.getElementById('bottomCtaForm');
   bottomForm?.addEventListener('submit', (e) => {
     e.preventDefault();
     const email = document.getElementById('bottomEmailInput')?.value;
-    showToast(`Portfolio demo access link generated!`);
+    showToast(`Access kit simulated for ${email}!`);
   });
 
   modalForm?.addEventListener('submit', (e) => {
     e.preventDefault();
     closeModal();
-    showToast('Simulated demo request received for portfolio showcase!');
+    showToast('Simulated consultation request received for portfolio showcase!');
   });
 
   function showToast(message) {
@@ -418,8 +308,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     setTimeout(() => {
       toast.style.opacity = '0';
-      toast.style.transition = 'opacity 0.2s ease';
-      setTimeout(() => toast.remove(), 200);
+      toast.style.transform = 'translateX(100%)';
+      toast.style.transition = 'all 0.25s ease';
+      setTimeout(() => toast.remove(), 250);
     }, 2800);
   }
 });
