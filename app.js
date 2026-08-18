@@ -1,8 +1,7 @@
 /* ==========================================================================
-   PRISM — HIGH-PERFORMANCE INTERACTION & SCROLLSPY ENGINE
-   Features: Asynchronous IntersectionObserver Scrollspy, Clean 2D Interactions,
-   Theme Switcher, Dynamic Matrix, Pricing Switcher, Modals & Toast.
-   Zero Continuous JS Loops • 100% Native Performance
+   PRISM — SWISS ARCHITECTURAL MINIMALIST INTERACTION & PRICING ENGINE
+   Features: Fluid Elastic Navbar Blob, Asynchronous Scrollspy,
+   3-Card Pricing Toggle (Monthly/Annual), Theme Switcher, HUD Tabs, Modals.
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -12,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // --------------------------------------------------------------------------
-  // 2. THEME SWITCHER (Dark Mode / Light Mode with Sun & Moon Icons)
+  // 2. THEME SWITCHER (Strict Monochrome / Orange Light & Dark Mode)
   // --------------------------------------------------------------------------
   const themeToggleBtn = document.getElementById('themeToggleBtn');
   const htmlRoot = document.documentElement;
@@ -42,11 +41,28 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // --------------------------------------------------------------------------
-  // 3. ZERO-LAG ASYNCHRONOUS SCROLLSPY (INTERSECTION OBSERVER)
+  // 3. FLUID ELASTIC NAVBAR BLOB & ASYNCHRONOUS SCROLLSPY
   // --------------------------------------------------------------------------
-  const navLinks = document.querySelectorAll('.main-nav .nav-link');
-  const sectionElements = document.querySelectorAll('section[id], .hero-dashboard-grid[id]');
+  const capsuleNav = document.getElementById('capsuleNav');
+  const navActiveBlob = document.getElementById('navActiveBlob');
+  const navLinks = document.querySelectorAll('.capsule-nav .capsule-link');
 
+  function updateNavBlob() {
+    const activeLink = document.querySelector('.capsule-nav .capsule-link.active');
+    if (activeLink && navActiveBlob && capsuleNav) {
+      const leftOffset = activeLink.offsetLeft;
+      const width = activeLink.offsetWidth;
+      navActiveBlob.style.transform = `translateX(${leftOffset - 4}px)`;
+      navActiveBlob.style.width = `${width}px`;
+    }
+  }
+
+  // Initial Blob Placement
+  setTimeout(updateNavBlob, 60);
+  window.addEventListener('resize', updateNavBlob, { passive: true });
+
+  // Scrollspy Observer
+  const sections = document.querySelectorAll('section[id]');
   const observerOptions = {
     root: null,
     rootMargin: '-20% 0px -60% 0px',
@@ -64,18 +80,23 @@ document.addEventListener('DOMContentLoaded', () => {
             link.classList.remove('active');
           }
         });
+        updateNavBlob();
       }
     });
   }, observerOptions);
 
-  sectionElements.forEach(section => observer.observe(section));
+  sections.forEach(sec => observer.observe(sec));
 
-  // Native Smooth Scroll on Nav Link Clicks with Offset
+  // Smooth Scroll on Link Clicks
   navLinks.forEach(link => {
     link.addEventListener('click', (e) => {
       e.preventDefault();
       const targetId = link.getAttribute('href')?.substring(1);
       const targetEl = document.getElementById(targetId);
+
+      navLinks.forEach(l => l.classList.remove('active'));
+      link.classList.add('active');
+      updateNavBlob();
 
       if (targetEl) {
         const topOffset = targetEl.getBoundingClientRect().top + window.scrollY - 90;
@@ -88,109 +109,54 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // --------------------------------------------------------------------------
-  // 4. TOP ANNOUNCEMENT & FLOATING BADGE DISMISS
+  // 4. HERO SHOWCASE HUD MODEL TABS
   // --------------------------------------------------------------------------
-  const announcementBar = document.getElementById('announcementBar');
-  const closeAnnouncementBtn = document.getElementById('closeAnnouncementBtn');
-  closeAnnouncementBtn?.addEventListener('click', () => {
-    if (announcementBar) {
-      announcementBar.style.opacity = '0';
-      announcementBar.style.maxHeight = '0';
-      announcementBar.style.padding = '0';
-      announcementBar.style.transition = 'all 0.3s ease';
-      setTimeout(() => announcementBar.remove(), 300);
-    }
-  });
+  const hudTabs = document.querySelectorAll('.hud-tab');
+  const hudClusterTag = document.getElementById('hudClusterTag');
+  const neuralWavePath = document.getElementById('neuralWavePath');
 
-  const portfolioFloatingBadge = document.getElementById('portfolioFloatingBadge');
-  const dismissBadgeBtn = document.getElementById('dismissBadgeBtn');
-  dismissBadgeBtn?.addEventListener('click', () => {
-    if (portfolioFloatingBadge) {
-      portfolioFloatingBadge.classList.add('hidden');
-    }
-  });
-
-  // --------------------------------------------------------------------------
-  // 5. DYNAMIC MATRIX TAG SELECTOR (Workflow Section)
-  // --------------------------------------------------------------------------
-  const filterPills = document.querySelectorAll('.filter-pill');
-  const previewBadge = document.getElementById('previewBadge');
-  const previewDesc = document.getElementById('previewDesc');
-
-  const tagDetails = {
-    strategy: {
-      badge: 'Media Strategy',
-      desc: 'Formulate predictive content release schedules and format retargeting strategies based on algorithmic viewer retention data.'
+  const hudData = {
+    prores: {
+      cluster: 'Cluster 04 // US-East (ProRes 4444 XQ Active)',
+      path: 'M 0 110 Q 100 30, 200 110 T 400 110 T 600 110 T 800 110'
     },
-    infra: {
-      badge: 'Cloud Transcode',
-      desc: 'Distributed GPU encoding clusters delivering real-time ProRes 4444 XQ and AV1 streams with sub-100ms pipeline latency.'
+    dubbing: {
+      cluster: 'Cluster 08 // EU-Central (40+ Dialects Synchronized)',
+      path: 'M 0 110 Q 80 10, 160 110 T 320 110 T 480 110 T 640 110 T 800 110'
     },
-    channels: {
-      badge: 'Multi-Platform Retargeting',
-      desc: 'Instantly conform raw timeline footage into 9:16 vertical shorts, 1:1 feeds, and 16:9 cinematic outputs with automatic subject framing.'
+    reframe: {
+      cluster: 'Cluster 02 // AP-East (Auto 9:16 Bounding Lock)',
+      path: 'M 0 110 Q 120 50, 240 110 T 480 110 T 720 110 T 800 110'
     },
-    ai: {
-      badge: 'Artificial Intelligence',
-      desc: 'AI that saves hours of editing time, cuts compute costs, and automatically generates viral social cutdowns from long-form footage.'
-    },
-    render: {
-      badge: 'Model Render & Synthesis',
-      desc: 'Neural generative scene expansion, background inpainting, and zero-flicker frame interpolation powered by custom edge models.'
-    },
-    process: {
-      badge: 'Process Optimization',
-      desc: 'Streamline multi-camera synchronization, automated loudness mastering (-14 LUFS standard), and XML timeline roundtrips.'
-    },
-    auto: {
-      badge: 'Studio Automation',
-      desc: 'Trigger autonomous batch rendering from webhook events, cloud storage uploads, or scheduled calendar drops.'
-    },
-    growth: {
-      badge: 'Retention Engine',
-      desc: 'Detect the highest energy hooks in raw footage to create magnetic first 3-second openers that maximize viewer engagement.'
+    synthesis: {
+      cluster: 'Cluster 11 // US-West (Neural Scene Inpainting)',
+      path: 'M 0 110 Q 60 20, 120 110 T 240 110 T 360 110 T 480 110 T 600 110 T 720 110 T 800 110'
     }
   };
 
-  filterPills.forEach(pill => {
-    pill.addEventListener('click', () => {
-      filterPills.forEach(p => p.classList.remove('active'));
-      pill.classList.add('active');
+  hudTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      hudTabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
 
-      const tagKey = pill.dataset.tag;
-      const data = tagDetails[tagKey];
-      if (data && previewBadge && previewDesc) {
-        previewBadge.style.opacity = '0';
-        previewDesc.style.opacity = '0';
-        setTimeout(() => {
-          previewBadge.textContent = data.badge;
-          previewDesc.textContent = data.desc;
-          previewBadge.style.opacity = '1';
-          previewDesc.style.opacity = '1';
-        }, 120);
+      const modelKey = tab.dataset.model;
+      const data = hudData[modelKey];
+      if (data) {
+        if (hudClusterTag) hudClusterTag.textContent = data.cluster;
+        if (neuralWavePath) neuralWavePath.setAttribute('d', data.path);
+        showToast(`Model parameter switched: ${tab.textContent}`);
       }
     });
   });
 
   // --------------------------------------------------------------------------
-  // 6. HERO AREA CHART TIME TABS
-  // --------------------------------------------------------------------------
-  const chartTabs = document.querySelectorAll('.chart-time-tabs .tab-item');
-  chartTabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      chartTabs.forEach(t => t.classList.remove('active'));
-      tab.classList.add('active');
-      showToast(`Viewing ${tab.textContent} throughput data`);
-    });
-  });
-
-  // --------------------------------------------------------------------------
-  // 7. PRICING SWITCHER (Monthly vs Annual with 20% Discount)
+  // 5. 3-CARD PRICING SWITCHER (Monthly vs Annual with 20% Discount)
   // --------------------------------------------------------------------------
   const billingToggleBtn = document.getElementById('billingToggleBtn');
   const monthlyLabel = document.getElementById('monthlyLabel');
   const annualLabel = document.getElementById('annualLabel');
   const priceVals = document.querySelectorAll('.price-val');
+  const billingNotes = document.querySelectorAll('.billing-note');
   let isAnnual = true;
 
   function updatePricing() {
@@ -211,7 +177,6 @@ document.addEventListener('DOMContentLoaded', () => {
       val.textContent = price;
     });
 
-    const billingNotes = document.querySelectorAll('.billing-note');
     billingNotes.forEach((note, idx) => {
       if (isAnnual) {
         const annualSums = ['$288/yr', '$768/yr', '$2,388/yr'];
@@ -230,73 +195,92 @@ document.addEventListener('DOMContentLoaded', () => {
   annualLabel?.addEventListener('click', () => { isAnnual = true; updatePricing(); });
 
   // --------------------------------------------------------------------------
-  // 8. FAQ ACCORDION
+  // 6. EDITORIAL FAQ ACCORDION
   // --------------------------------------------------------------------------
-  const faqItems = document.querySelectorAll('.faq-item');
+  const faqItems = document.querySelectorAll('.faq-accordion-item');
   faqItems.forEach(item => {
-    const trigger = item.querySelector('.faq-trigger');
-    trigger?.addEventListener('click', () => {
+    const btn = item.querySelector('.faq-header-btn');
+    btn?.addEventListener('click', () => {
       const isOpen = item.classList.contains('open');
       faqItems.forEach(f => {
         f.classList.remove('open');
-        f.querySelector('.faq-trigger')?.setAttribute('aria-expanded', 'false');
+        f.querySelector('.faq-header-btn')?.setAttribute('aria-expanded', 'false');
       });
       if (!isOpen) {
         item.classList.add('open');
-        trigger.setAttribute('aria-expanded', 'true');
+        btn.setAttribute('aria-expanded', 'true');
       }
     });
   });
 
   // --------------------------------------------------------------------------
-  // 9. MODAL & TOAST HANDLERS
+  // 7. PRE-FOOTER RADAR FORM & MODAL HANDLERS
   // --------------------------------------------------------------------------
-  const demoModal = document.getElementById('demoModal');
+  const radarForm = document.getElementById('radarForm');
+  radarForm?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const uri = document.getElementById('radarInput')?.value;
+    showToast(`Feasibility audit passed for ${uri} (Latency: 8.4ms)`);
+  });
+
+  const deployModal = document.getElementById('deployModal');
   const modalCloseBtn = document.getElementById('modalCloseBtn');
-  const navGetStartedBtn = document.getElementById('navGetStartedBtn');
-  const navRequestDemoBtn = document.getElementById('navRequestDemoBtn');
-  const heroStartBtn = document.getElementById('heroStartBtn');
-  const heroContactBtn = document.getElementById('heroContactBtn');
-  const workflowControlBtn = document.getElementById('workflowControlBtn');
-  const modalForm = document.getElementById('modalForm');
+  const deployBtn = document.getElementById('deployBtn');
+  const exploreCloudBtn = document.getElementById('exploreCloudBtn');
+  const starterPlanBtn = document.getElementById('starterPlanBtn');
+  const proPlanBtn = document.getElementById('proPlanBtn');
+  const enterprisePlanBtn = document.getElementById('enterprisePlanBtn');
+  const deployModalForm = document.getElementById('deployModalForm');
 
   function openModal() {
-    if (demoModal) {
-      demoModal.classList.add('open');
-      demoModal.setAttribute('aria-hidden', 'false');
+    if (deployModal) {
+      deployModal.classList.add('open');
+      deployModal.setAttribute('aria-hidden', 'false');
     }
   }
 
   function closeModal() {
-    if (demoModal) {
-      demoModal.classList.remove('open');
-      demoModal.setAttribute('aria-hidden', 'true');
+    if (deployModal) {
+      deployModal.classList.remove('open');
+      deployModal.setAttribute('aria-hidden', 'true');
     }
   }
 
-  navGetStartedBtn?.addEventListener('click', openModal);
-  navRequestDemoBtn?.addEventListener('click', openModal);
-  heroStartBtn?.addEventListener('click', openModal);
-  heroContactBtn?.addEventListener('click', openModal);
-  workflowControlBtn?.addEventListener('click', openModal);
+  deployBtn?.addEventListener('click', openModal);
+  exploreCloudBtn?.addEventListener('click', openModal);
+  starterPlanBtn?.addEventListener('click', openModal);
+  proPlanBtn?.addEventListener('click', openModal);
+  enterprisePlanBtn?.addEventListener('click', openModal);
   modalCloseBtn?.addEventListener('click', closeModal);
-  demoModal?.addEventListener('click', (e) => {
-    if (e.target === demoModal) closeModal();
+  deployModal?.addEventListener('click', (e) => {
+    if (e.target === deployModal) closeModal();
   });
 
-  const bottomForm = document.getElementById('bottomCtaForm');
-  bottomForm?.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const email = document.getElementById('bottomEmailInput')?.value;
-    showToast(`Access kit simulated for ${email}!`);
-  });
-
-  modalForm?.addEventListener('submit', (e) => {
+  deployModalForm?.addEventListener('submit', (e) => {
     e.preventDefault();
     closeModal();
-    showToast('Simulated consultation request received for portfolio showcase!');
+    showToast('Simulated cluster provisioning event triggered for portfolio showcase!');
   });
 
+  // Floating Dismiss Badge
+  const portfolioFloatingBadge = document.getElementById('portfolioFloatingBadge');
+  const dismissBadgeBtn = document.getElementById('dismissBadgeBtn');
+  dismissBadgeBtn?.addEventListener('click', () => {
+    if (portfolioFloatingBadge) {
+      portfolioFloatingBadge.classList.add('hidden');
+    }
+  });
+
+  // Top Announcement Close
+  const announcementBar = document.getElementById('announcementBar');
+  const closeAnnouncementBtn = document.getElementById('closeAnnouncementBtn');
+  closeAnnouncementBtn?.addEventListener('click', () => {
+    if (announcementBar) {
+      announcementBar.style.display = 'none';
+    }
+  });
+
+  // Toast Function
   function showToast(message) {
     const toastContainer = document.getElementById('toastContainer');
     if (!toastContainer) return;
