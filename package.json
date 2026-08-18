@@ -1,0 +1,16 @@
+{
+  "name": "prism-ai-media-engine",
+  "version": "2.4.0",
+  "description": "PRISM — The AI-Powered Media Engine for Autonomous Video & Audio",
+  "main": "index.html",
+  "scripts": {
+    "dev": "serve .",
+    "start": "serve ."
+  },
+  "keywords": ["ai", "media-engine", "saas", "landing-page", "portfolio", "dark-theme"],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "serve": "^14.2.4"
+  }
+}
